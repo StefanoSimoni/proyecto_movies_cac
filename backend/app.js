@@ -9,7 +9,6 @@ import { config } from "./auth/config/authJWTConfig.js";
 import { router as directorsRoutes } from "./routes/directorsRoutes.js";
 import { router as gendersRoutes } from "./routes/gendersRoutes.js";
 import { router as writtersRoutes } from "./routes/writtersRoutes.js";
-import { connection } from "./db/connections/mySQLConnection.js";
 import { router as movies_directorsRoutes } from "./routes/movies_directorsRoutes.js";
 import { router as movies_gendersRoutes } from "./routes/movies_gendersRoutes.js";
 import { router as movies_writtersRoutes } from "./routes/movies_writtersRoutes.js";

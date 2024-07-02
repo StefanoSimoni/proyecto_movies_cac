@@ -17,7 +17,7 @@ import {
   };
   
   const postMovieWritter = async (req, res) => {
-    const movieWritter = parseMovieWritter(req.query);
+    const movieWritter = parseMovieWritter(req.body);
     const result = await createMovieWritter(movieWritter);
     res.json(result);
   };

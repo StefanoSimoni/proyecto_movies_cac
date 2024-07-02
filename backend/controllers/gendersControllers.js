@@ -18,13 +18,13 @@ import {
   };
   
   const postGender = async (req, res) => {
-    const gender = parseGender(req.query);
+    const gender = parseGender(req.body);
     const result = await createGender(gender);
     res.json(result);
   };
   
   const putGender = async (req, res) => {
-    const gender = parsePartialGender(req.query);
+    const gender = parsePartialGender(req.body);
     gender.id = req.params.id;
     const result = await updateGender(gender);
     res.json(result);

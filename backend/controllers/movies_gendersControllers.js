@@ -17,7 +17,7 @@ import {
   };
   
   const postMovieGender = async (req, res) => {
-    const movieGender = parseMovieGender(req.query);
+    const movieGender = parseMovieGender(req.body);
     const result = await createMovieGender(movieGender);
     res.json(result);
   };

@@ -18,13 +18,13 @@ import {
   };
   
   const postMovie = async (req, res) => {
-    const movie = parseMovie(req.query);
+    const movie = parseMovie(req.body);
     const result = await createMovie(movie);
     res.json(result);
   };
   
   const putMovie = async (req, res) => {
-    const movie = parsePartialMovie(req.query);
+    const movie = parsePartialMovie(req.body);
     movie.id = req.params.id;
     const result = await updateMovie(movie);
     res.json(result);

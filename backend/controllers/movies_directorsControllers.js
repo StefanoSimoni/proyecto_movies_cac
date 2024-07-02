@@ -17,7 +17,7 @@ import {
   };
   
   const postMovieDirector = async (req, res) => {
-    const movieDirector = parseMovieDirector(req.query);
+    const movieDirector = parseMovieDirector(req.body);
     const result = await createMovieDirector(movieDirector);
     res.json(result);
   };

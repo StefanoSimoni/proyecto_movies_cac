@@ -18,13 +18,13 @@ import {
   };
   
   const postWritter = async (req, res) => {
-    const writter = parseWritter(req.query);
+    const writter = parseWritter(req.body);
     const result = await createWritter(writter);
     res.json(result);
   };
   
   const putWritter = async (req, res) => {
-    const writter = parsePartialWritter(req.query);
+    const writter = parsePartialWritter(req.body);
     writter.id = req.params.id;
     const result = await updateWritter(writter);
     res.json(result);

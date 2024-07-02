@@ -18,13 +18,13 @@ import {
   };
   
   const postDirector = async (req, res) => {
-    const director = parseDirector(req.query);
+    const director = parseDirector(req.body);
     const result = await createDirector(director);
     res.json(result);
   };
   
   const putDirector = async (req, res) => {
-    const director = parsePartialDirector(req.query);
+    const director = parsePartialDirector(req.body);
     director.id = req.params.id;
     const result = await updateDirector(director);
     res.json(result);

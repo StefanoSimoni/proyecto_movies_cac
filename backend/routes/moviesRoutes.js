@@ -6,6 +6,7 @@ import {
   putMovie,
   deletMovie,
 } from "../controllers/moviesControllers.js";
+import { authJWT } from "../middlewares/authMiddleware.js";
 
 export const router = Router();
 
@@ -14,8 +15,8 @@ router
 
   .get("/:id", getMovie)
 
-  .post("/", postMovie)
+  .post("/", authJWT, postMovie)
 
-  .put("/:id", putMovie)
+  .put("/:id", authJWT, putMovie)
 
-  .delete("/:id", deletMovie);
+  .delete("/:id", authJWT, deletMovie);

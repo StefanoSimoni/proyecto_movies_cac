@@ -10,10 +10,10 @@ import { authJWT } from "../middlewares/authMiddleware.js";
 export const router = Router();
 
 router
-  .get("/", authJWT, getUsers)
+  .get("/", getUsers)
 
-  .get("/:id", getUser)
+  .get("/:id", authJWT, getUser)
 
-  .put("/", putUser)
+  .put("/", authJWT, putUser)
 
-  .delete("/:id", deletUser);
+  .delete("/:id", authJWT, deletUser);

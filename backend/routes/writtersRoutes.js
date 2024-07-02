@@ -6,12 +6,13 @@ import {
   putWritter,
   deletWritter,
 } from "../controllers/writtersControllers.js";
+import { authJWT } from "../middlewares/authMiddleware.js";
 
 export const router = Router();
 
 router
   .get("/", getWritters)
   .get("/:id", getWritter)
-  .post("/", postWritter)
-  .put("/:id", putWritter)
-  .delete("/:id", deletWritter);
+  .post("/", authJWT, postWritter)
+  .put("/:id", authJWT, putWritter)
+  .delete("/:id", authJWT, deletWritter);

@@ -6,12 +6,13 @@ import {
   putGender,
   deletGender,
 } from "../controllers/gendersControllers.js";
+import { authJWT } from "../middlewares/authMiddleware.js";
 
 export const router = Router();
 
 router
   .get("/", getGenders)
   .get("/:id", getGender)
-  .post("/", postGender)
-  .put("/:id", putGender)
-  .delete("/:id", deletGender);
+  .post("/", authJWT, postGender)
+  .put("/:id", authJWT, putGender)
+  .delete("/:id", authJWT, deletGender);

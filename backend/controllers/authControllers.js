@@ -10,7 +10,6 @@ const register = async (req, res) => {
   const { password } = user;
 
   const hash = bcrypt.hashSync(password, 10);
-  console.log(hash);
 
   const result = await createUser({ ...user, password: hash });
 

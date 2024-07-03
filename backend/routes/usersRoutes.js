@@ -6,14 +6,15 @@ import {
   deletUser,
 } from "../controllers/usersControllers.js";
 import { authJWT } from "../middlewares/authMiddleware.js";
+import { authAdmin } from "../middlewares/isAdminMiddleware.js";
 
 export const router = Router();
 
 router
-  .get("/", getUsers)
+  .get("/", authJWT, authAdmin, getUsers)
 
-  .get("/:id", authJWT, getUser)
+  .get("/:id", authJWT, authAdmin, getUser)
 
-  .put("/:id", authJWT, putUser)
+  .put("/", authJWT, authAdmin, putUser)
 
-  .delete("/:id", authJWT, deletUser);
+  .delete("/:id", authJWT, authAdmin, deletUser);

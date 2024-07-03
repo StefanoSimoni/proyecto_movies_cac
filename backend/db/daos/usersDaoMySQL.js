@@ -24,16 +24,16 @@ const readUserByEmail = async (email) => {
   return result;
 };
 
-const updateUser = async (user) => {
-  const query = `UPDATE Users SET name = "${user.name}", last_name = "${user.last_name}", email = "${user.email}", password = "${user.password}", birthday = "${user.birthday}", country = "${user.country}", isAdmin = ${user.isAdmin} WHERE id = ${user.id}`;
+const updateUser = async (user, id) => {
+  const query = `UPDATE Users SET name = "${user.name}", last_name = "${user.last_name}", email = "${user.email}", password = "${user.password}", birthday = "${user.birthday}", country = "${user.country}", isAdmin = ${user.isAdmin} WHERE id = ${id}`;
   const [result] = await connection.promise().query(query);
   return result;
 };
 
 const deleteUser = async (id) => {
-    const query = `DELETE FROM Users WHERE id = ?`;
-    const [result] = await connection.promise().query(query, [id]);
-    return result;
+  const query = `DELETE FROM Users WHERE id = ?`;
+  const [result] = await connection.promise().query(query, [id]);
+  return result;
 };
 
 export {

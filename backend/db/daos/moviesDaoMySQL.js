@@ -17,7 +17,7 @@ import {
 } from "./movies_writtersDaoMySQL.js";
 
 const createMovie = async (movie) => {
-  const query = `INSERT INTO Movies (image, title, date, duration, overview, trailer, facebook, twitter, instagram, web, status, originalLenguage, budget, revenue) VALUES ("${movie.image}", "${movie.title}", "${movie.date}", "${movie.duration}", "${movie.overview}", "${movie.trailer}", "${movie.facebook}", "${movie.twitter}", "${movie.instagram}", "${movie.web}", "${movie.status}", "${movie.originalLanguage}", ${movie.budget}, ${movie.revenue})`;
+  const query = `INSERT INTO movies (image, title, date, duration, overview, trailer, facebook, twitter, instagram, web, status, originalLenguage, budget, revenue) VALUES ("${movie.image}", "${movie.title}", "${movie.date}", "${movie.duration}", "${movie.overview}", "${movie.trailer}", "${movie.facebook}", "${movie.twitter}", "${movie.instagram}", "${movie.web}", "${movie.status}", "${movie.originalLanguage}", ${movie.budget}, ${movie.revenue})`;
   const [result] = await connection.promise().query(query);
   if (result.affectedRows) {
     JSON.parse(movie.directors).forEach((director) => {
@@ -47,13 +47,13 @@ const readMovies = async () => {
     GROUP_CONCAT(DISTINCT CONCAT(d.id, ",", d.name, ",", d.last_name)) directors, 
     GROUP_CONCAT(DISTINCT CONCAT(w.id, ",", w.name, ",", w.last_name)) writters, 
     GROUP_CONCAT(DISTINCT g.gender) genders 
-    FROM Movies m 
-    INNER JOIN Movies_Directors md ON m.id = md.id_movies 
-    INNER JOIN Directors d ON d.id = md.id_directors 
-    INNER JOIN Movies_Genders mg ON m.id = mg.id_movies 
-    INNER JOIN Genders g ON g.id = mg.id_genders 
-    INNER JOIN Movies_Writters mw ON m.id = mw.id_movies 
-    INNER JOIN Writters w ON w.id = mw.id_writters
+    FROM movies m 
+    INNER JOIN movies_directors md ON m.id = md.id_movies 
+    INNER JOIN directors d ON d.id = md.id_directors 
+    INNER JOIN movies_genders mg ON m.id = mg.id_movies 
+    INNER JOIN genders g ON g.id = mg.id_genders 
+    INNER JOIN movies_writters mw ON m.id = mw.id_movies 
+    INNER JOIN writters w ON w.id = mw.id_writters
     GROUP BY m.id`;
   const [result] = await connection.promise().query(query);
   const response = result.map((result) => {
@@ -74,13 +74,13 @@ const readMovie = async (id) => {
     GROUP_CONCAT(DISTINCT CONCAT(d.id, ",", d.name, ",", d.last_name)) directors, 
     GROUP_CONCAT(DISTINCT CONCAT(w.id, ",", w.name, ",", w.last_name)) writters, 
     GROUP_CONCAT(DISTINCT g.gender) genders 
-    FROM Movies m 
-    INNER JOIN Movies_Directors md ON m.id = md.id_movies 
-    INNER JOIN Directors d ON d.id = md.id_directors 
-    INNER JOIN Movies_Genders mg ON m.id = mg.id_movies 
-    INNER JOIN Genders g ON g.id = mg.id_genders 
-    INNER JOIN Movies_Writters mw ON m.id = mw.id_movies 
-    INNER JOIN Writters w ON w.id = mw.id_writters
+    FROM movies m 
+    INNER JOIN movies_directors md ON m.id = md.id_movies 
+    INNER JOIN directors d ON d.id = md.id_directors 
+    INNER JOIN movies_genders mg ON m.id = mg.id_movies 
+    INNER JOIN genders g ON g.id = mg.id_genders 
+    INNER JOIN movies_writters mw ON m.id = mw.id_movies 
+    INNER JOIN writters w ON w.id = mw.id_writters
     WHERE m.id = ${id}`;
   const [result] = await connection.promise().query(query);
   const response = result.map((result) => {
@@ -97,7 +97,7 @@ const readMovie = async (id) => {
 };
 
 const updateMovie = async (movie) => {
-  const query = `UPDATE Movies SET image = "${movie.image}", title = "${movie.title}", date = "${movie.date}", duration = "${movie.duration}", overview = "${movie.overview}", trailer = "${movie.trailer}", facebook = "${movie.facebook}", twitter = "${movie.twitter}", instagram = "${movie.instagram}", web = "${movie.web}", status = "${movie.status}", originalLenguage = "${movie.originalLanguage}", budget = ${movie.budget}, revenue = ${movie.revenue} WHERE id = ${movie.id}`;
+  const query = `UPDATE movies SET image = "${movie.image}", title = "${movie.title}", date = "${movie.date}", duration = "${movie.duration}", overview = "${movie.overview}", trailer = "${movie.trailer}", facebook = "${movie.facebook}", twitter = "${movie.twitter}", instagram = "${movie.instagram}", web = "${movie.web}", status = "${movie.status}", originalLenguage = "${movie.originalLanguage}", budget = ${movie.budget}, revenue = ${movie.revenue} WHERE id = ${movie.id}`;
   const [result] = await connection.promise().query(query);
   if (result.affectedRows) {
     JSON.parse(movie.directors).forEach((director) => {
@@ -132,7 +132,7 @@ const updateMovie = async (movie) => {
 };
 
 const deleteMovie = async (id) => {
-  const query = `DELETE FROM Movies WHERE id = ${id}`;
+  const query = `DELETE FROM movies WHERE id = ${id}`;
   const [result] = await connection.promise().query(query);
   if (result.affectedRows) {
     deleteMovieDirector(id);

@@ -1,37 +1,37 @@
 import { connection } from "../connections/mySQLConnection.js";
 
 const createUser = async (user) => {
-  const query = `INSERT INTO Users (name, last_name, email, password, birthday, country, isAdmin) VALUES ("${user.name}", "${user.last_name}", "${user.email}", "${user.password}", "${user.birthday}", "${user.country}", ${user.isAdmin})`;
+  const query = `INSERT INTO users (name, last_name, email, password, birthday, country, isAdmin) VALUES ("${user.name}", "${user.last_name}", "${user.email}", "${user.password}", "${user.birthday}", "${user.country}", ${user.isAdmin})`;
   const [result] = await connection.promise().query(query);
   return result;
 };
 
 const readUsers = async () => {
-  const query = `SELECT * FROM Users`;
+  const query = `SELECT * FROM users`;
   const [result] = await connection.promise().query(query);
   return result;
 };
 
 const readUser = async (id) => {
-  const query = `SELECT * FROM Users WHERE id = ${id}`;
+  const query = `SELECT * FROM users WHERE id = ${id}`;
   const [result] = await connection.promise().query(query);
   return result;
 };
 
 const readUserByEmail = async (email) => {
-  const query = `SELECT * FROM Users WHERE email = "${email}"`;
+  const query = `SELECT * FROM users WHERE email = "${email}"`;
   const [result] = await connection.promise().query(query);
   return result;
 };
 
 const updateUser = async (user, id) => {
-  const query = `UPDATE Users SET name = "${user.name}", last_name = "${user.last_name}", email = "${user.email}", password = "${user.password}", birthday = "${user.birthday}", country = "${user.country}", isAdmin = ${user.isAdmin} WHERE id = ${id}`;
+  const query = `UPDATE users SET name = "${user.name}", last_name = "${user.last_name}", email = "${user.email}", password = "${user.password}", birthday = "${user.birthday}", country = "${user.country}", isAdmin = ${user.isAdmin} WHERE id = ${id}`;
   const [result] = await connection.promise().query(query);
   return result;
 };
 
 const deleteUser = async (id) => {
-  const query = `DELETE FROM Users WHERE id = ?`;
+  const query = `DELETE FROM users WHERE id = ?`;
   const [result] = await connection.promise().query(query, [id]);
   return result;
 };

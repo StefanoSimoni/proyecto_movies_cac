@@ -14,7 +14,7 @@ const register = async (req, res) => {
   const result = await createUser({ ...user, password: hash });
 
   const token = jwt.sign(
-    { email: result.email },
+    { isAdmin: result.isAdmin },
     config.secretKey,
     config.token
   );
@@ -31,13 +31,13 @@ const login = async (req, res) => {
 
   if (user && bcrypt.compareSync(password, user.password)) {
     const token = jwt.sign(
-      { email: user.email },
+      { isAdmin: user.isAdmin },
       config.secretKey,
       config.token
     );
     res.status(201);
     res.cookie("token", token, config.cookie);
-    res.redirect("/pages/selector.html");
+    res.redirect("/");
   } else {
     res.send("Incorrect email or password");
   }

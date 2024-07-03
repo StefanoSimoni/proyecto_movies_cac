@@ -7,6 +7,7 @@ import {
   deletMovie,
 } from "../controllers/moviesControllers.js";
 import { authJWT } from "../middlewares/authMiddleware.js";
+import { authAdmin } from "../middlewares/isAdminMiddleware.js";
 
 export const router = Router();
 
@@ -15,8 +16,8 @@ router
 
   .get("/:id", getMovie)
 
-  .post("/", authJWT, postMovie)
+  .post("/", authJWT, authAdmin, postMovie)
 
-  .put("/:id", authJWT, putMovie)
+  .put("/", authJWT, authAdmin, putMovie)
 
-  .delete("/:id", authJWT, deletMovie);
+  .delete("/:id", authJWT, authAdmin, deletMovie);

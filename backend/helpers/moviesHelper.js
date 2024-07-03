@@ -17,6 +17,7 @@ export const parseStringsToArrays = (string) => {
 
 export const parseMovie = (data) => {
   const movie = {
+    id: parseInt(data.id),
     ...data,
     budget: parseFloat(data.budget) || 0,
     revenue: parseFloat(data.revenue) || 0,

@@ -1,5 +1,6 @@
 export const parseDirector = (data) => {
     const director = {
+      id: parseInt(data.id),
       ...data
     };
     return director;

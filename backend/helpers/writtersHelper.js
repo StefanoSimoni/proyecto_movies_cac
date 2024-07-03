@@ -1,5 +1,6 @@
 export const parseWritter = (data) => {
     const writter = {
+      id: parseInt(data.id),
       ...data
     };
     return writter;

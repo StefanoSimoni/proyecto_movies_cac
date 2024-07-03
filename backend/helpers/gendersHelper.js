@@ -1,5 +1,6 @@
 export const parseGender = (data) => {
     const gender = {
+      id: parseInt(data.id),
       ...data
     };
     return gender;

@@ -1,6 +1,8 @@
+import "dotenv/config";
+
 export const config = {
-  host: "localhost",
-  user: "root",
-  port: 3306,
-  database: "cac_movies",
+  host: process.env.HOST_DB,
+  user: process.env.USER_DB,
+  password: process.env.PASS_DB,
+  database: process.env.DB,
 };

@@ -8,7 +8,6 @@ const createDirector = async (director) => {
 
 const readDirectors = async () => {
   const query = `SELECT * FROM directors`;
-  console.log('query: ', query);
   const [result] = await connection.promise().query(query);
   return result;
 };

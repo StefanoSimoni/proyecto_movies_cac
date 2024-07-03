@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const saveUser = async (user) => {
-        console.log('user: ', user);
         const method = currentUserId ? 'PUT' : 'POST';
         const url = currentUserId ? `http://localhost:8080/users/${currentUserId}` : 'http://localhost:8080/auth/register';
         const response = await fetch(url, {
@@ -36,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             body: JSON.stringify(user),
         });
-        console.log('response: ', response);
         return response.json();
     };
 

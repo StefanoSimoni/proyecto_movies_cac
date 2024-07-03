@@ -9,7 +9,7 @@ const authJWT = (req, res, next) => {
   jwt.verify(token, config.secretKey, (err, decoded) => {
     if (err) return res.status(500).send("The token has expired");
 
-    console.log(decoded);
+    //console.log(decoded);
 
     next();
   });

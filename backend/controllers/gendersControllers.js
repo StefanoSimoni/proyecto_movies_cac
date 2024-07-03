@@ -25,7 +25,6 @@ import {
   
   const putGender = async (req, res) => {
     const gender = parsePartialGender(req.body);
-    gender.id = req.params.id;
     const result = await updateGender(gender);
     res.json(result);
   };

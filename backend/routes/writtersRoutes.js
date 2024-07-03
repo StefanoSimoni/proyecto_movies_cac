@@ -18,6 +18,6 @@ router
 
   .post("/", authJWT, authAdmin, postWritter)
 
-  .put("/:id", authJWT, authAdmin, putWritter)
+  .put("/", authJWT, authAdmin, putWritter)
 
   .delete("/:id", authJWT, authAdmin, deletWritter);

@@ -18,7 +18,7 @@ const getUser = async (req, res) => {
 
 const putUser = async (req, res) => {
   const user = parseUser(req.body);
-  const result = await updateUser(user, req.params.id);
+  const result = await updateUser(user);
   res.json(result);
 };
 

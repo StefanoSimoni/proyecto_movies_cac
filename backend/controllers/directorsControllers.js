@@ -25,7 +25,6 @@ import {
   
   const putDirector = async (req, res) => {
     const director = parsePartialDirector(req.body);
-    director.id = req.params.id;
     const result = await updateDirector(director);
     res.json(result);
   };

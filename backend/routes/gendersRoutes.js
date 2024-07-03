@@ -18,6 +18,6 @@ router
 
   .post("/", authJWT, authAdmin, postGender)
 
-  .put("/:id", authJWT, authAdmin, putGender)
+  .put("/", authJWT, authAdmin, putGender)
 
   .delete("/:id", authJWT, authAdmin, deletGender);

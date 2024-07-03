@@ -24,8 +24,8 @@ const readUserByEmail = async (email) => {
   return result;
 };
 
-const updateUser = async (user, id) => {
-  const query = `UPDATE users SET name = "${user.name}", last_name = "${user.last_name}", email = "${user.email}", password = "${user.password}", birthday = "${user.birthday}", country = "${user.country}", isAdmin = ${user.isAdmin} WHERE id = ${id}`;
+const updateUser = async (user) => {
+  const query = `UPDATE users SET name = "${user.name}", last_name = "${user.last_name}", email = "${user.email}", password = "${user.password}", birthday = "${user.birthday}", country = "${user.country}", isAdmin = ${user.isAdmin} WHERE id = ${user.id}`;
   const [result] = await connection.promise().query(query);
   return result;
 };

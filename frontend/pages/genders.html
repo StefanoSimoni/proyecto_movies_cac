@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genders ABM | CAC-MOVIES</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <button id="back-to-selector">Back to Selector</button>
+    <h1>Genders ABM</h1>
+    <div>
+        <form id="gender-form">
+            <input type="hidden" id="gender-id">
+            <label for="gender">Gender:</label>
+            <input type="text" id="gender" name="gender">
+            <button type="submit">Save Gender</button>
+        </form>
+    </div>
+    <div>
+        <h2>Genders List</h2>
+        <ul id="genders-list"></ul>
+    </div>
+    <script src="../js/genders.js"></script>
+    <script>
+        document.getElementById('back-to-selector').addEventListener('click', () => {
+            window.location.href = 'selector.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies ABM | CAC-MOVIES</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <button id="back-to-selector">Back to Selector</button>
+    <h1>Movies ABM</h1>
+    <div>
+        <form id="movie-form">
+            <input type="hidden" id="movie-id">
+            <label for="image">Image URL:</label>
+            <input type="text" id="image" name="image">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date">
+            <label for="duration">Duration:</label>
+            <input type="time" id="duration" name="duration">
+            <label for="overview">Overview:</label>
+            <textarea id="overview" name="overview"></textarea>
+            <label for="trailer">Trailer URL:</label>
+            <input type="text" id="trailer" name="trailer">
+            <label for="facebook">Facebook:</label>
+            <input type="text" id="facebook" name="facebook">
+            <label for="twitter">Twitter:</label>
+            <input type="text" id="twitter" name="twitter">
+            <label for="instagram">Instagram:</label>
+            <input type="text" id="instagram" name="instagram">
+            <label for="web">Web:</label>
+            <input type="text" id="web" name="web">
+            <label for="status">Status:</label>
+            <input type="text" id="status" name="status">
+            <label for="originalLenguage">Original Language:</label>
+            <input type="text" id="originalLenguage" name="originalLenguage">
+            <label for="budget">Budget:</label>
+            <input type="number" id="budget" name="budget">
+            <label for="revenue">Revenue:</label>
+            <input type="number" id="revenue" name="revenue">
+            <button type="submit">Save Movie</button>
+        </form>
+    </div>
+    <div>
+        <h2>Movies List</h2>
+        <ul id="movies-list"></ul>
+    </div>
+    <script src="../js/movies.js"></script>
+    <script>
+        document.getElementById('back-to-selector').addEventListener('click', () => {
+            window.location.href = 'selector.html';
+        });
+    </script>
+</body>
+</html>

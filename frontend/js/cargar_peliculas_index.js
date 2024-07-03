@@ -14,7 +14,7 @@ const cargarPeliculasTendencia = async (page = 1) => {
     const response = await fetch(`${API_SERVER}/movie/popular?page=${page}`, options);
     const data = await response.json(); // Convertimos la respuesta a JSON
     const movies = data.results;// Extraemos las películas de la respuesta
-    console.log(movies);
+    //console.log(movies);
     const tendenciasContainer = document.querySelector('.peliculasTendencia .peliculas');// Seleccionamos el contenedor de películas de tendencia en el DOM, la section que tiene dentro el div peliculas
     tendenciasContainer.innerHTML = '';// Limpiamos el contenido previo del contenedor
 

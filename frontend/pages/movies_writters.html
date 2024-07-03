@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Writters ABM | CAC-MOVIES</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <button id="back-to-selector">Back to Selector</button>
+    <h1>Movies Writters ABM</h1>
+    <div>
+        <form id="movies_writter-form">
+            <input type="hidden" id="movies_writter-id">
+            <label for="id_movies">Movie ID:</label>
+            <input type="number" id="id_movies" name="id_movies">
+            <label for="id_writters">Writter ID:</label>
+            <input type="number" id="id_writters" name="id_writters">
+            <button type="submit">Save Movies Writter</button>
+        </form>
+    </div>
+    <div>
+        <h2>Movies Writters List</h2>
+        <ul id="movies_writters-list"></ul>
+    </div>
+    <script src="../js/movies_writters.js"></script>
+    <script>
+        document.getElementById('back-to-selector').addEventListener('click', () => {
+            window.location.href = 'selector.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Directors ABM | CAC-MOVIES</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <button id="back-to-selector">Back to Selector</button>
+    <h1>Movies Directors ABM</h1>
+    <div>
+        <form id="movies_director-form">
+            <input type="hidden" id="movies_director-id">
+            <label for="id_movies">Movie ID:</label>
+            <input type="number" id="id_movies" name="id_movies">
+            <label for="id_directors">Director ID:</label>
+            <input type="number" id="id_directors" name="id_directors">
+            <button type="submit">Save Movies Director</button>
+        </form>
+    </div>
+    <div>
+        <h2>Movies Directors List</h2>
+        <ul id="movies_directors-list"></ul>
+    </div>
+    <script src="../js/movies_directors.js"></script>
+    <script>
+        document.getElementById('back-to-selector').addEventListener('click', () => {
+            window.location.href = 'selector.html';
+        });
+    </script>
+</body>
+</html>

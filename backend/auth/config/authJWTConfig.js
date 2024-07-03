@@ -1,5 +1,3 @@
-import "dotenv/config";
-
 export const config = {
   secretKey: process.env.AUTH_SECRETKEY,
   token: { expiresIn: "3h" },

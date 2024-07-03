@@ -1,4 +1,5 @@
 import express from "express";
+import "dotenv/config";
 import { router as usersRoutes } from "./routes/usersRoutes.js";
 import { router as moviesRoutes } from "./routes/moviesRoutes.js";
 import { router as authRoutes } from "./routes/authRoutes.js";
@@ -10,7 +11,7 @@ import { router as gendersRoutes } from "./routes/gendersRoutes.js";
 import { router as writtersRoutes } from "./routes/writtersRoutes.js";
 
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT;
 
 app.use(express.static("frontend"));
 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directors ABM | CAC-MOVIES</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <h1>Directors ABM</h1>
+    <div>
+        <form id="director-form">
+            <input type="hidden" id="director-id">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name">
+            <button type="submit">Save Director</button>
+        </form>
+    </div>
+    <div>
+        <h2>Directors List</h2>
+        <ul id="directors-list"></ul>
+    </div>
+    <script src="../js/directors.js"></script>
+</body>
+</html>

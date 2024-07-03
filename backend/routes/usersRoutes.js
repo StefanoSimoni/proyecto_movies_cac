@@ -14,6 +14,6 @@ router
 
   .get("/:id", authJWT, getUser)
 
-  .put("/", authJWT, putUser)
+  .put("/:id", authJWT, putUser)
 
   .delete("/:id", authJWT, deletUser);

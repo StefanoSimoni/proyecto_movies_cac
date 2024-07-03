@@ -31,9 +31,9 @@ const updateUser = async (user) => {
 };
 
 const deleteUser = async (id) => {
-  const query = `DELETE FROM Users WHERE id = ${id}`;
-  const [result] = await connection.promise().query(query);
-  return result;
+    const query = `DELETE FROM Users WHERE id = ?`;
+    const [result] = await connection.promise().query(query, [id]);
+    return result;
 };
 
 export {

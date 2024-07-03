@@ -37,7 +37,7 @@ const login = async (req, res) => {
     );
     res.status(201);
     res.cookie("token", token, config.cookie);
-    res.redirect("/");
+    res.redirect("/pages/selector.html");
   } else {
     res.send("Incorrect email or password");
   }

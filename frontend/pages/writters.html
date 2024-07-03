@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writters ABM | CAC-MOVIES</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <h1>Writters ABM</h1>
+    <div>
+        <form id="writter-form">
+            <input type="hidden" id="writter-id">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name">
+            <button type="submit">Save Writter</button>
+        </form>
+    </div>
+    <div>
+        <h2>Writters List</h2>
+        <ul id="writters-list"></ul>
+    </div>
+    <script src="../js/writters.js"></script>
+</body>
+</html>

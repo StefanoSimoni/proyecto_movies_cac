@@ -8,6 +8,7 @@ const authJWT = (req, res, next) => {
   jwt.verify(token, config.secretKey, (err, decoded) => {
     if (err) return res.status(500).send("The token has expired");
 
+    res.cookie("email", decoded.email, config.cookie);
     req.isAdmin = decoded.isAdmin;
 
     next();

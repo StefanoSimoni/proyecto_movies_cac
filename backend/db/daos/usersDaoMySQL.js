@@ -1,7 +1,11 @@
 import { connection } from "../connections/mySQLConnection.js";
 
 const createUser = async (user) => {
-  const query = `INSERT INTO users (name, last_name, email, password, birthday, country, isAdmin) VALUES ("${user.name}", "${user.last_name}", "${user.email}", "${user.password}", "${user.birthday}", "${user.country}", ${user.isAdmin})`;
+  const query = `INSERT INTO users (name, last_name, email, password, birthday, country, isAdmin) VALUES ("${
+    user.name
+  }", "${user.last_name}", "${user.email}", "${user.password}", "${
+    user.birthday
+  }", "${user.country}", ${0})`;
   const [result] = await connection.promise().query(query);
   return result;
 };
@@ -25,6 +29,12 @@ const readUserByEmail = async (email) => {
 };
 
 const updateUser = async (user) => {
+  const query = `UPDATE users SET name = "${user.name}", last_name = "${user.last_name}", email = "${user.email}", password = "${user.password}", birthday = "${user.birthday}", country = "${user.country}" WHERE id = ${user.id}`;
+  const [result] = await connection.promise().query(query);
+  return result;
+};
+
+const updateUserAdmin = async (user) => {
   const query = `UPDATE users SET name = "${user.name}", last_name = "${user.last_name}", email = "${user.email}", password = "${user.password}", birthday = "${user.birthday}", country = "${user.country}", isAdmin = ${user.isAdmin} WHERE id = ${user.id}`;
   const [result] = await connection.promise().query(query);
   return result;
@@ -42,5 +52,6 @@ export {
   readUser,
   readUserByEmail,
   updateUser,
+  updateUserAdmin,
   deleteUser,
 };

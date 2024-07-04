@@ -133,12 +133,10 @@ const updateMovie = async (movie) => {
 
 const deleteMovie = async (id) => {
   const query = `DELETE FROM movies WHERE id = ${id}`;
+  deleteMovieDirector(id);
+  deleteMovieWritter(id);
+  deleteMovieGender(id);
   const [result] = await connection.promise().query(query);
-  if (result.affectedRows) {
-    deleteMovieDirector(id);
-    deleteMovieWritter(id);
-    deleteMovieGender(id);
-  }
   return result;
 };
 

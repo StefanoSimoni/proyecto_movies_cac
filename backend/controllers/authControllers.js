@@ -14,13 +14,13 @@ const register = async (req, res) => {
   const result = await createUser({ ...user, password: hash });
 
   const token = jwt.sign(
-    { isAdmin: result.isAdmin },
+    { email: result.email, isAdmin: result.isAdmin },
     config.secretKey,
     config.token
   );
 
   result
-    ? res.cookie("token", token, config.cookie)
+    ? res.cookie("token", token, config.cookie).status(201).json(result)
     : res.send("Somethig went wrong");
 };
 
@@ -31,7 +31,7 @@ const login = async (req, res) => {
 
   if (user && bcrypt.compareSync(password, user.password)) {
     const token = jwt.sign(
-      { isAdmin: user.isAdmin },
+      { email: user.email, isAdmin: user.isAdmin },
       config.secretKey,
       config.token
     );

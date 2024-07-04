@@ -24,7 +24,7 @@ import {
   };
   
   const putDirector = async (req, res) => {
-    const director = parsePartialDirector(req.body);
+    const director = parseDirector(req.body);
     const result = await updateDirector(director);
     res.json(result);
   };

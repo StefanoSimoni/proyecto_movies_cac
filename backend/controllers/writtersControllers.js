@@ -24,7 +24,7 @@ import {
   };
   
   const putWritter = async (req, res) => {
-    const writter = parsePartialWritter(req.body);
+    const writter = parseWritter(req.body);
     const result = await updateWritter(writter);
     res.json(result);
   };
